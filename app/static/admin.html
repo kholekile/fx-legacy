@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>FX Legacy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">  
+	
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js">
+	</script>
+	<script type="text/javascript" src="./js/app.js"></script>
+
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js">
+	</script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js">
+	</script>
+	<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js">
+	</script>
+	<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js">
+	</script>
+	<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js">
+	</script>
+	
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js">
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+	<style type="text/css">
+		.w3-theme {
+			background-color: #060807!important;
+			border-bottom: 5px solid #daa520;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	
+	<!-- Header -->
+    <header class="w3-container w3-theme w3-padding" id="myHeader"> 
+        <div class="w3-center">
+            <h1 class="w3-animate-bottom">
+            	<img src="../static/images/fx-legacy-logo.jpg" width="200px" alt="FX Legacy Logo">
+            </h1>
+        </div>
+    </header>
+
+    <main>
+    	
+        <section class="app">
+        	<div class="tab">
+	  			<button class="tablinks" onclick="openCity(event, 'Training')" id="defaultOpen">
+	  				Training
+	  			</button>
+	  			<button class="tablinks" onclick="openCity(event, 'Seminor')">
+	  				Seminar
+	  			</button>
+	  			<button class="tablinks" onclick="openCity(event, 'Linking')">
+	  				Copy Trade
+	  			</button>
+			</div>
+
+        	<div id="Training" class="tabcontent">
+        		<h3 class="w3-center">Training Table</h3>
+	        	<table id="table_training" class="display responsive no-wrap" width="100%">
+				    <thead>
+				        <tr>
+				        	<th>Title</th>
+				            <th>First Name</th>
+				            <th>Last Name</th>
+				            <th>ID Number</th>
+				            <th>Cellphone</th>
+				            <th>Refference Number</th>
+				            <th>City</th>
+				            <th>Date</th>
+				            <th>Reffered By First Name</th>
+				            <th>Reffered By Last Name</th>
+				            <th>Reffered By Contact</th>
+				        </tr>
+				    </thead>
+				</table>
+			</div>
+
+			<div id="Seminor" class="tabcontent">
+				<h3 class="w3-center">Seminar Table</h3>
+			  	<table id="table_seminor" class="display responsive no-wrap" width="100%">
+				    <thead>
+				        <tr>
+				        	<th>Title</th>
+				            <th>First Name</th>
+				            <th>Last Name</th>
+				            <th>ID Number</th>
+				            <th>Cellphone</th>
+				            <th>Refference Number</th>
+				            <th>Reffered By First Name</th>
+				            <th>Reffered By Last Name</th>
+				            <th>Reffered By Contact</th>
+				        </tr>
+				    </thead>
+				</table>
+			</div>
+
+			<div id="Linking" class="tabcontent">
+			 	<h3 class="w3-center">Copy Trade Table</h3>
+			  	<table id="table_linking" class="display responsive no-wrap" width="100%">
+				    <thead>
+				        <tr>
+				        	<th>Title</th>
+				            <th>First Name</th>
+				            <th>Last Name</th>
+				            <th>ID Number</th>
+				            <th>Cellphone</th>
+				            <th>Refference Number</th>
+				            <th>Reffered By First Name</th>
+				            <th>Reffered By Last Name</th>
+				            <th>Reffered By Contact</th>
+				        </tr>
+				    </thead>
+				</table>
+			</div>
+
+        </section>
+    </main>	
+</body>
+
+</html>

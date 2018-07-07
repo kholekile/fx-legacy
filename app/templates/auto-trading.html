@@ -1,0 +1,175 @@
+{% extends "templates/base.html" %}
+
+{% block main_content %}
+
+	<section class="wrapper">
+		<div class="header-banner">
+			<h3>Copy Trading</h3>
+		</div>
+
+		<div class="container">
+			<ul class="breadcrumbs">
+				<li><a href="/">Home</a></li>
+				<li>></li>
+				<li>Services</li>
+				<li>></li>
+				<li>Copy Trading</li>
+			</ul>
+		</div>
+	</section>
+
+	<div class="info-section">
+		<div class="container">
+			<h4>WHY SHOULD I USE COPY TRADE</h4>
+
+			<div class="side-img">
+				<img src="../static/images/copy-trade.jpg">
+			</div>
+
+			<div class="side-text">
+				<p>Copy trading is another form of automated Forex trading. Forex copy trade practically allows those who don’t have any knowledge of Forex trading and those who don’t have the time to analyses the markets and trade, to copy the trades of experienced traders and reap the rewards .</p>
+
+				<p>Copy trade in Forex allows you to automatically copy traders that have experience ,to help you trade Forex profitably without you actually getting into the act of trading yourself</p>
+
+				<p>Account Opened with Our Recommended Broker Using Our Link Click here to open a live trading account using our link</p>
+
+				<a class="btn-primary small" type="submit" onclick="unhideForm()">Register</a>
+			</div>
+		</div>
+	</div>
+
+	<div id="form-section" class="register-form">
+		<div class="container">
+			<h4 class="underline">Register</h4>
+			<form name="auto-trading-form" action="/linking-form" method="POST">
+
+				<div class="">
+          			<select required id="inputTitle" name="title">
+            		<option value="" disabled selected>Choose Your Title</option>
+            		<option value="Mr">Mr</option>
+            		<option value="Mrs">Mrs</option>
+            		<option value="Miss">Miss</option>
+          			</select>
+        		</div>
+
+        		<div class="">
+        			<input type="text" 
+        			id="inputFirstName" 
+        			name="firstname" 
+        			placeholder="Enter Name" 
+        			required>
+        		</div>
+
+        		<div class="">
+        			<input type="text" 
+        			id="inputLastName" 
+        			name="lastname" 
+        			placeholder="Enter Last Name" 
+        			required>
+        		</div>
+				
+				<div class="">
+					<input type="text" 
+					id="inputIdNumber" 
+					name="idnumber" 
+					placeholder="Enter ID Number" 
+					minlength="0" 
+					maxlength="13" 
+					onkeypress="return isNumberKey(event);"
+					required>
+				</div>
+				
+				<div class="">
+					<input type="text" 
+					id="inputCellPhoneNumber" 
+					name="cellPhoneNumber" 
+					placeholder="Enter Cell Phone Number" 
+					minlength="0" 
+					maxlength="10" 
+					onkeypress="return isNumberKey(event);"
+					required>
+				</div>
+
+				<div class="">
+					<select id="inputReferredByOption" required name="reffered" class="">
+            			<option value="" disabled selected>Choose Who Referred You</option>
+            			<option value="no_one">No One</option>
+            			<option value="church_pastor">Church Pastor</option>
+            			<option value="friend">Friend</option>
+          			</select>
+				</div>
+
+				<div id="church_details">
+					<h4 class="underline">Church Info</h4>
+
+			        <select id="inputChurchOrganisation" required name="churchOrganisation">
+			            <option value="" disabled selected>Choose Church Organisation</option>
+			              {% for church in churches %}
+			                <option value="{{church.key.urlsafe()}}">
+			                 {{church.get_church_name()}} 
+			                 {{church.get_paster_name()}} 
+			                 {{church.get_address()}} 
+			                </option>
+			              {% endfor %}
+			        </select>
+			    </div>
+
+			    <div id="friend_details">
+			    	<h4 class="underline">Referred By Info</h4>
+
+			    	<div class="">
+				    	<select id="inputReferrerTitle" name="referrerTitle" required>
+				            <option value="" disabled selected>Choose Title</option>
+				            <option value="Mr">Mr</option>
+				            <option value="Mrs">Mrs</option>
+				            <option value="Miss">Miss</option>
+				         </select>
+			    	</div>
+			        
+			        <div class="">
+			            <input type="text" 
+			            id="inputReferrerFirstName" 
+			            name="referrerfirstname" 
+			            placeholder="Referred By First Name" 
+			            required>
+			        </div>
+        
+			          <div class="">
+			            <input type="text" 
+			            id="inputReferrerLastName" 
+			            name="referrerlastname" 
+			            placeholder="Referred By Last Name"
+			            required>
+			          </div>
+
+			          <div class="">
+			            <input type="text" 
+			            id="inputReferrerContact" 
+			            name="referrerContact" 
+			            placeholder="Referred By Cell Phone Number" 
+			            required>
+			          </div>
+      			</div>
+
+				<button class="btn-primary small" type="submit">Register</button>
+
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="container-card">
+		<div class="card-panel">
+			<div class="content">
+				<h3>Copy Trade</h3>
+				<p>FX Legacy automated trading</p>
+				<p>Start coping our experienced traders now.</p>
+			</div>
+
+			<div class="cta">
+				<a href="/services/copy-trading" class="btn-primary outline">Register</a>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

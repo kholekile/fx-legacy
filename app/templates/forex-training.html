@@ -1,0 +1,304 @@
+{% extends "templates/base.html" %}
+
+{% block main_content %}
+	
+	<div id="loginRegisterBox" class="modal">
+	  
+	  <div class="form-container">
+	    <span id="modalClose" title="Close Modal">
+	      <i class="fa fa-times" aria-hidden="true"></i>
+	    </span>
+	    
+	    <!-- Login Form -->
+	    <div id="loginFieldset" class="modal-content">
+	      <div class="modal-header">
+	        <img src="../static/images/fx-banner.jpg">
+	      </div>
+
+	      <div id="loginForm" class="user-form">
+	        <h2>FX Legacy automated trading</h2>
+	        <p>Forex trading simplified</p>
+
+	        <p class="modal-wording">Start coping our experienced traders now.</p>
+	        <a href="/services/copy-trading" class="btn-primary" type="submit">Register</a>
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
+
+	<section class="wrapper">
+		<div class="header-banner">
+			<h3>Forex Training</h3>
+		</div>
+
+		<div class="container">
+			<ul class="breadcrumbs">
+				<li><a href="/">Home</a></li>
+				<li>></li>
+				<li>Services</li>
+				<li>></li>
+				<li>Forex Training</li>
+			</ul>
+		</div>
+	</section>
+
+	<div class="info-section">
+		<div class="container">
+			<h4>Forex Training</h4>
+
+			<div class="side-img">
+				<img src="../static/images/forex-training.jpg">
+			</div>
+
+			<div class="side-text">
+				<p>Our courses have been designed to allow any individual from any background to learn about the forex markets and how to trade them. Our courses enable you to apply your knowledge to any financial instrument ranging from EURUSD, GBPUSD, EURAUD currency pairs to markets like DAX, FTSE, DOW, S&amp;P and much more.</p>
+
+				<p>Our Forex Course has been built from the ground up. In short it will transform you into a successful independent Forex trader. The course is delivered over an intensive three-day period at our offices. The following is a breakdown of the 3 day course.</p>
+
+				<a class="btn-primary small" type="submit" onclick="unhideForm()">Register</a>
+			</div>
+		</div>
+	</div>
+
+	<div id="form-section" class="register-form">
+			<div class="container">
+				<h4 class="underline">Register</h4>
+				<form name="auto-trading-form" action="/training-form" method="POST">
+
+					<div class="">
+	          			<select required id="inputTitle" name="title">
+	            		<option value="" disabled selected>Choose Your Title</option>
+	            		<option value="Mr">Mr</option>
+	            		<option value="Mrs">Mrs</option>
+	            		<option value="Miss">Miss</option>
+	          			</select>
+	        		</div>
+
+	        		<div class="">
+	        			<input type="text" 
+	        			id="inputFirstName" 
+	        			name="firstname" 
+	        			placeholder="Enter Name" 
+	        			required>
+	        		</div>
+
+	        		<div class="">
+	        			<input type="text" 
+	        			id="inputLastName" 
+	        			name="lastname" 
+	        			placeholder="Enter Last Name" 
+	        			required>
+	        		</div>
+					
+					<div class="">
+						<input type="text" 
+						id="inputIdNumber" 
+						name="idnumber" 
+						placeholder="Enter ID Number" 
+						minlength="0" 
+						maxlength="13" 
+						onkeypress="return isNumberKey(event);"
+						required>
+					</div>
+					
+					<div class="">
+						<input type="text" 
+						id="inputCellPhoneNumber" 
+						name="cellPhoneNumber" 
+						placeholder="Enter Cell Phone Number" 
+						minlength="0" 
+						maxlength="10" 
+						onkeypress="return isNumberKey(event);"
+						required>
+					</div>
+
+					<div class="">
+						<input type="text" 
+						id="inputEmail" 
+						name="email" 
+						placeholder="Enter Email Address" 
+						required>
+					</div>
+
+					<div class="">
+				        <select id="inputTrainingSession" required name="trainingSession">
+				            <option value="" disabled selected>Choose Traing Session</option>
+				              {% for slot in slots %}
+				                <option value="{{slot.key.urlsafe()}}">
+				                 {{slot.get_city_name()}} 
+				                 {{slot.get_day()}} 
+				                 {{slot.get_date()}} 
+				                 {{slot.get_time()}}
+				                </option>
+				              {% endfor %}
+				        </select>
+				    </div>
+
+					<div class="">
+						<select id="inputReferredByOption" required name="reffered" class="">
+	            			<option value="" disabled selected>Choose Who Referred You</option>
+	            			<option value="no_one">No One</option>
+	            			<option value="church_pastor">Church Pastor</option>
+	            			<option value="friend">Friend</option>
+	          			</select>
+					</div>
+
+					<div id="church_details">
+						<h4 class="underline">Church Info</h4>
+
+				        <select id="inputChurchOrganisation" required name="churchOrganisation">
+				            <option value="" disabled selected>Choose Church Organisation</option>
+				              {% for church in churches %}
+				                <option value="{{church.key.urlsafe()}}">
+				                 {{church.get_church_name()}} 
+				                 {{church.get_paster_name()}} 
+				                 {{church.get_address()}} 
+				                </option>
+				              {% endfor %}
+				        </select>
+				    </div>
+
+				    <div id="friend_details">
+				    	<h4 class="underline">Referred By Info</h4>
+
+				    	<div class="">
+					    	<select id="inputReferrerTitle" required name="referrerTitle">
+					            <option value="" disabled selected>Choose Title</option>
+					            <option value="Mr">Mr</option>
+					            <option value="Mrs">Mrs</option>
+					            <option value="Miss">Miss</option>
+					         </select>
+				    	</div>
+				        
+				        <div class="">
+				            <input type="text" 
+				            id="inputReferrerFirstName" 
+				            name="referrerfirstname" 
+				            placeholder="Referred By First Name"
+				            required>
+				        </div>
+	        
+				        <div class="">
+				            <input type="text" 
+				            id="inputReferrerLastName" 
+				            name="referrerlastname" 
+				            placeholder="Referred By Last Name"
+				            required>
+				        </div>
+
+				        <div class="">
+				            <input type="text" 
+				            id="inputReferrerContact" 
+				            name="referrerContact" 
+				            placeholder="Referred By Cell Phone Number"
+				            required>
+				        </div>
+	      			</div>
+
+					<button class="btn-primary small" type="submit">Register</button>
+
+					</div>
+				</form>
+			</div>
+	</div>
+
+	<div class="container">
+		<h4 class="underline">Training <span>Overview</span></h4>
+		<div class="training-overview">
+			<div class="col-40">
+				<div class="whole">
+					<div class="plan">
+						<div class="plan-header">
+							Day 1
+						</div>
+						<div class="content">
+							<ul class="plan-details">
+								<li>Introduction to Forex Trading</li>
+								<li>Theory of Forex Trading</li>
+								<li>Money Management</li>
+								<li>Psychology of Trading</li>
+								<li>Setting up your computer for Forex trading</li>
+								<li>Opening a Demo trading account</li>
+							</ul>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<div class="col-40">
+			<div class="whole">
+				<div class="plan">
+					<div class="plan-header">
+						Day 2
+					</div>
+					<div class="content">
+						<ul class="plan-details">
+							<li>Navigation of MT4 platform</li>
+							<li>Basic, Intermediate and Advanced Trading techniques</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-40">
+			<div class="whole">
+				<div class="plan">
+					<div class="plan-header">
+						Day 3
+					</div>
+					<div class="content">
+						<ul class="plan-details">
+							<li>Developing a Trading system</li>
+							<li>Demo Trading</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="col-50">
+			<h4 class="underline">Personal <span>Attention</span></h4>
+			<ul class="bullet-points">
+				<li>Days of intensive training</li>
+				<li>Opening of a Demo Trading Account</li>
+				<li>Beginner, Intermediate and Advanced Trading techniques</li>
+				<li>Lots of practice on a computer</li>
+				<li>Forex Trading Manual</li>
+				<li>Refreshments</li>
+				<li>Help with opening of a live Trading account</li>
+			</ul>
+		</div>
+
+		<div class="col-50">
+			<h4 class="underline">Support</h4>
+			<p>We provide lifetime support after the 3 full day training.</p>
+
+			<p>Without support newly trained Traders loose discipline,
+			focus and drive needed to become successful. We
+			continually give support until Traders feel fully equipped to
+			be on their own.</p>
+		</div>
+	</div>
+
+	<div class="container-card">
+		<div class="card-panel">
+			<div class="content">
+				<h3>Copy Trade</h3>
+				<p>FX Legacy automated trading</p>
+				<p>Start coping our experienced traders now.</p>
+			</div>
+
+			<div class="cta">
+				<a href="/services/copy-trading" class="btn-primary outline">Register</a>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

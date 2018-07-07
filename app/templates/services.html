@@ -1,0 +1,57 @@
+{% extends "templates/base.html" %}
+
+{% block main_content %}
+	<section class="wrapper">
+		<div class="header-banner">
+			<h3>Services</h3>
+		</div>
+
+		<div class="container">
+			<ul class="breadcrumbs">
+				<li><a href="/">Home</a></li>
+				<li>></li>
+				<li>Services</li>
+			</ul>
+		</div>
+	</section>
+
+	<div class="container">
+		<h4 class="underline">Our <span>Services</span></h4>
+
+		<div class="col-50">
+			<a href="/services/copy-trading">
+				<div class="imgBlock copy-trade">
+					<p class="text-center">Copy Trade</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-50">
+			<a href="/services/forex-training">
+				<div class="imgBlock forex-training">
+					<p class="text-center">Forex Training</p>
+				</div>
+			</a>
+		</div>
+		<div class="col-50">
+			<a href="/services/forex-seminar">
+				<div class="imgBlock forex-seminars">
+					<p class="text-center">Forex Seminars</p>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<div class="container-card">
+		<div class="card-panel">
+			<div class="content">
+				<h3>Copy Trade</h3>
+				<p>FX Legacy automated trading</p>
+				<p>Start coping our experienced traders now.</p>
+			</div>
+
+			<div class="cta">
+				<a href="/services/copy-trading" class="btn-primary outline">Register</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
